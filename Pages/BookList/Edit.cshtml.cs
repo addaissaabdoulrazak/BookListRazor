@@ -25,6 +25,7 @@ namespace WebApplication_BookListRazor.Pages.BookList
         [HttpGet]
         public async Task OnGet(int id)
         {
+           
             Book = await _db.Book.FindAsync(id);
         }
 
@@ -34,6 +35,10 @@ namespace WebApplication_BookListRazor.Pages.BookList
             // pour effectuer une Modification il faut dabord récuperer le Livre en fonction de son Id au niveau de la base de données
             
             // 1-on declarer une nouvelle variable qui recupera le livre coté base de données en fonction de L'Id car il doit etre Modifier
+           
+          /* La Modification champs par champs est effectuer lorsque vous devriez mettre a jour tout les champs du Livre*/
+
+            //* Par Contre vous pouvez Utiliser _db.Book.Update() lorsque vous avez deux trois champs a Modifier*/
             var BookFromDb = await _db.Book.FindAsync(Book.Id);
 
             BookFromDb.Name = Book.Name;

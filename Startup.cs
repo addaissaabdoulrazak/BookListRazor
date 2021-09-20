@@ -29,7 +29,7 @@ namespace WebApplication_BookListRazor
 
             //ajout du context a notre pipeline(middleware)
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddControllersWithViews();
             services.AddRazorPages();
             
         }
@@ -57,6 +57,7 @@ namespace WebApplication_BookListRazor
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }

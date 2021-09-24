@@ -22,6 +22,8 @@ namespace WebApplication_BookListRazor.Pages.BookList
         public Book Book { get; set; }
         public void OnGet()
         {
+            //ici pas besoin d'indiquer que votre function Onget() prend un livre Vide
+            //par contre au niveau de Upsert il faudrait l'indiquer par=> Book=new Book();
         }
         //on utilisera Task tant que dans le bloc de l'action Nous Avons " await "
         public async Task<IActionResult> OnPost()
